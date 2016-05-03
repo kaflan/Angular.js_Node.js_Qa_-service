@@ -1,0 +1,31 @@
+<form>
+  <div class="modal-header">
+    <h4 class="modal-title ">{{$ctrl.task.header}}</h4>
+    <p class="pull-right">autor: <span class=" badge">{{$ctrl.task.name}}</span>
+       date: <span class="badge">{{$ctrl.task.date| date}}</span></p>
+  </div>
+  <div class="modal-body">
+    <p>{{$ctrl.task.description}}</p>
+  </div>
+  <div class="modal-body">
+    <div ng-repeat="comment in $ctrl.task.comments">
+      <p>{{comment.description}}</p>
+      <span class="pull-right badge">autor :{{comment.name}}</span>
+      <span class="pull-left badge">date: {{comment.date | date}}</span>
+      <hr>
+    </div>
+  </div>
+  <div class="form-group">
+    <label  class="control-label">Email
+    </label>
+      <input type="email" class="form-control" ng-model="$ctrl.comment.email" placeholder="email">
+    <label  class="control-label">
+      Comment description
+    </label>
+       <textarea ng-model="$ctrl.comment.description" class="form-control" placeholder="comment description">
+       </textarea>
+  </div>
+  <div class="form-group">
+    <button ng-click="$ctrl.addAnswer()" class="center-block btn btn-primary" ng-disabled="!$ctrl.comment.description.length">Add answer</button>
+  </div>
+</form>

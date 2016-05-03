@@ -1,0 +1,16 @@
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+/* Custom page header */
+.header {
+  margin: 50px 0 2% 40%;
+}
+.header >.nav > li > a:hover, .nav > li > a:focus{
+  color: #fff;
+     background-color: #204d74;
+     border-color: #122b40;
+}
+/* Make the masthead heading the same height as the navigation */
