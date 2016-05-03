@@ -17,9 +17,9 @@ angular.module('myRepoApp')
     'addQustion',
     'addComment',
     function(getTask, $scope, $routeParams, $location, $uibModal, addQustion, addComment) {
-       getTask.query().then(function(res){
-         $scope.tasks = res;
-       });
+      getTask.query().then(function(res) {
+        $scope.tasks = res;
+      });
       var QA = this;
       QA.location = $location;
       $scope.task = {
@@ -63,8 +63,9 @@ angular.module('myRepoApp')
                 date: new Date(),
               };
               $ctrl.addAnswer = function(index) {
-
-                $ctrl.task.comments.push($ctrl.comment);
+                addComment.addComment($ctrl.comment, index).then(function(res, status) {
+                  $ctrl.task.comments.push($ctrl.comment);  
+                });
               };
             }
           ],
